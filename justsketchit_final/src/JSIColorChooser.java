@@ -62,11 +62,7 @@ public class JSIColorChooser {
         }
     }
 
-    public Color calcColor(
-            Point pt, 
-            int canvasWidth, 
-            int canvasHeight) {
-        
+    public Color calcColor(Point pt, int canvasWidth, int canvasHeight) {
         double yStart = canvasHeight * VERTICAL_START_FRACTION;
         double yEnd = canvasHeight * VERTICAL_END_FRACTION;
         double cellWidth = (double) canvasWidth / (double) CELL_NUM_HUE;
@@ -75,8 +71,7 @@ public class JSIColorChooser {
         int brightnessIndex = (int) (((double) pt.y - yStart) / cellHeight);
         int hueIndex = (int) ((double) pt.x / cellWidth);
         
-        if (brightnessIndex < 0 || 
-                brightnessIndex >= CELL_NUM_BRIGHTNESS) {
+        if (brightnessIndex < 0 || brightnessIndex >= CELL_NUM_BRIGHTNESS) {
             return null;
         }
         

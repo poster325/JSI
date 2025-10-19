@@ -16,14 +16,12 @@ import javax.swing.JPanel;
 public class JSICanvas2D extends JPanel {
     
     private static final Color COLOR_PT_CURVE_DEFAULT = Color.BLACK;
-    private static final Color COLOR_SELECTION_BOX = 
-            new Color(255, 0, 0, 64);
+    private static final Color COLOR_SELECTION_BOX = new Color(255, 0, 0, 64);
     private static final Color COLOR_SELECTED_PT_CURVE = Color.ORANGE;
     private static final Color COLOR_INFO = new Color(255, 0, 0, 128);
     private static final Color COLOR_CROSS_HAIR = new Color(255, 0, 0, 64);
     
-    private static final Stroke STROKE_PT_CURVE_DEFAULT = 
-            new BasicStroke(5f);
+    private static final Stroke STROKE_PT_CURVE_DEFAULT = new BasicStroke(5f);
     private static final Stroke STROKE_SELECTION_BOX = new BasicStroke(3f);
     private static final Stroke STROKE_CROSS_HAIR = new BasicStroke(5f);
     
@@ -111,11 +109,7 @@ public class JSICanvas2D extends JPanel {
     }
     
     private void drawPtCurve(
-            Graphics2D g2, 
-            JSIPtCurve ptCurve, 
-            Color c, 
-            Stroke s) {
-        
+            Graphics2D g2, JSIPtCurve ptCurve, Color c, Stroke s) {
         ArrayList<Point2D.Double> pts = ptCurve.getPts();
         if (pts.size() < 2) {
             return;
@@ -144,8 +138,7 @@ public class JSICanvas2D extends JPanel {
     }
 
     private void drawSelectedPtCurve(Graphics2D g2) {
-        for (JSIPtCurve selectedPtCurve : 
-                this.mJSI.getSelectedPtCurves()) {
+        for (JSIPtCurve selectedPtCurve : this.mJSI.getSelectedPtCurves()) {
             this.drawPtCurve(
                     g2, 
                     selectedPtCurve, 
