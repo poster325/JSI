@@ -267,8 +267,7 @@ public class JSI implements MouseListener, MouseMotionListener,
         Point lastScreenPt = 
                 this.mXform.calcPtFromWorldToScreen(lastWorldPt);
         
-        if (screenPt.distance(lastScreenPt) < 
-                JSIPtCurve.MIN_DIST_BTWN_PTS) {
+        if (screenPt.distance(lastScreenPt) < JSIPtCurve.MIN_DIST_BTWN_PTS) {
             return;
         }
         
@@ -570,6 +569,9 @@ public class JSI implements MouseListener, MouseMotionListener,
         if (this.mHistoryIndex > 0) {
             this.mHistoryIndex--;
             this.restoreFromHistory();
+        } else {
+             System.out.println("You can only undo up to " 
+                     + MAX_HISTORY_SIZE + " times.");
         }
     }
     
@@ -577,6 +579,8 @@ public class JSI implements MouseListener, MouseMotionListener,
         if (this.mHistoryIndex < this.mHistorySize - 1) {
             this.mHistoryIndex++;
             this.restoreFromHistory();
+        } else {
+            System.out.println("Nothing to redo");
         }
     }
     
